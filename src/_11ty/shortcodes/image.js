@@ -1,6 +1,6 @@
 const Image = require("@11ty/eleventy-img");
 
-async function imageShortcode(src, alt, sizes = "100vw", classes = "h-96") {
+async function imageShortcode(src, alt, sizes = "100vw", classes = "h-96 aspect-w-16 aspect-h-9") {
     let metadata = await Image(src, {
         widths: [300, 600, 900, null], // specify the widths you want
         formats: ["avif", "webp", "jpeg", "png", "jpg"], // specify the formats you want
@@ -13,7 +13,7 @@ async function imageShortcode(src, alt, sizes = "100vw", classes = "h-96") {
         sizes,
         loading: "lazy",
         decoding: "async",
-        class: "block mx-auto max-h-full max-w-full"
+        class: "block object-contain max-h-full max-w-full"
     };
 
     return `<div class="image-container overflow-hidden relative ${classes}">` + Image.generateHTML(metadata, imageAttributes) + "</div>"
