@@ -6,6 +6,7 @@ date: 2021-06-19
 luogo: Palermo
 layout: article.njk
 permalink: "blog/{{ title | slugify }}.html"
+hidden: true
 ---
 
 <div class="lead">

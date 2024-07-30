@@ -1,0 +1,14 @@
+// Static tasks configuration.
+//
+[
+  {
+    "label": "run dev",
+    "type": "shell",
+    "command": "npm run dev",
+    // "args": ["--workers=1"],
+    "cwd": "$ZED_WORKTREE_ROOT"
+    // "env": {
+    //   "WHATEVER_ENV_VAR": "127.0.0.1:9099",
+    // }
+  }
+]
