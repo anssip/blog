@@ -10,6 +10,11 @@ type: website
 <!-- Start Body -->
 <body>
     {% include "nav.njk" %}
+    <!-- Parallax Strip -->
+    <div class="parallax-strip-container">
+        <div class="parallax-strip-background"></div>
+    </div>
+    <!-- Main Content -->
     <main>
         <ul class="elenco-posts">
             <li class="posts">
@@ -28,6 +33,7 @@ type: website
         </ul>
     </main>
     {% include "footer.njk" %}
+    <script src="/js/parallax.js"></script>
 </body>
 <!-- End Body -->
 </html>

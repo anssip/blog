@@ -10,10 +10,18 @@ type: website
 <!-- Start Body -->
 <body>
     {% include "nav.njk" %}
+    <!-- Parallax Container -->
+    <div class="parallax-strip-container">
+        <!-- Background Layer -->
+        <div class="parallax-strip-background"></div>
+    </div>
+    <!-- Original Content -->
     <main>
         {{content | safe}}
+        <!-- Removed temporary content -->
     </main>
     {% include "footer.njk" %}
+    <script src="/js/parallax.js"></script>
 </body>
 <!-- End Body -->
 </html>

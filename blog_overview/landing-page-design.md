@@ -1,0 +1,1 @@
+The landing page (template index.md) should have a background implemented using a CSS grid. The background should have a parallax effect so that it moves when the page is scrolled but using a parallax efect which makes it appear in a distance behind the text content of the page.

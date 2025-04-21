@@ -5,6 +5,11 @@
 @layer base {
   html {
     @apply px-5 bg-zinc-100 dark:bg-zinc-900 font-serif text-base text-slate-900 dark:text-slate-100 transition-all;
+    /* Removed fixed background from html */
+    /* background-image: url('/img/hard-drive.png'); */
+    /* background-size: 300px; */
+    /* background-repeat: repeat; */
+    /* background-attachment: fixed; */
   }
   body {
     @apply container mx-auto;
@@ -21,6 +26,7 @@
   }
   header {
     @apply flex items-center justify-between gap-5 flex-col border-b;
+    @apply sticky top-0 z-10 bg-zinc-100 dark:bg-zinc-900;
   }
   hgroup {
     @apply inline-block align-middle hover:text-sky-600;
@@ -49,6 +55,11 @@
   main,
   article {
     @apply prose prose-sky dark:prose-invert dark:prose-p:text-slate-50 dark:prose-li:text-slate-50 dark:prose-lead:text-slate-100 prose-lead:font-light mx-auto text-justify my-2;
+    @apply bg-zinc-100 dark:bg-zinc-900;
+    position: relative; /* Needed for z-index stacking if required */
+    z-index: 1;         /* Ensure content is above background strip if needed */
+    /* semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.8);
   }
   h1,
   article > small.info {
@@ -82,7 +93,7 @@
   }
 }
 
-@media screen(sm) {
+@screen sm {
   html {
     @apply px-6 text-lg;
   }
@@ -110,7 +121,7 @@
   }
 }
 
-@media screen(md) {
+@screen md {
   html {
     @apply px-7 text-xl;
   }
@@ -157,7 +168,7 @@
   }
 }
 
-@media screen(xl) {
+@screen xl {
   html {
     @apply px-8 text-xl;
   }
@@ -169,14 +180,14 @@
   }
   main,
   article {
-    @apply max-w-screen-md my-4;
+    @apply max-w-screen-md mb-4;
   }
   .social {
     @apply grow-0 gap-8 justify-end;
   }
 }
 
-@media screen(2xl) {
+@screen 2xl {
   html {
     @apply px-9 text-xl;
   }
@@ -188,9 +199,43 @@
   }
   main,
   article {
-    @apply max-w-screen-lg my-5;
+    @apply max-w-screen-lg mb-5;
   }
   .social {
     @apply grow-0 gap-9 justify-end;
   }
 }
+
+
+/* Parallax Strip Styles for JS Control */
+.parallax-strip-container {
+  position: fixed; /* Needed for absolute positioning of child */
+  height: 500px; /* Keep the desired height */
+  width: 100%;
+  overflow: hidden;
+  top: 300px;
+  left: 0;
+  right: 0;
+}
+
+.parallax-strip-background {
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0; /* Initial position, JS will adjust */
+  /* Make taller than container to allow movement */
+  /* Adjust percentage based on desired scroll range/speed */
+  height: 200%; 
+  z-index: -1; /* Keep behind content */
+  
+  /* Background image (Assuming path is correct now) */
+  background-image: url('/images/hard-drives.png'); 
+  background-size: 300px; 
+  background-repeat: repeat;
+  background-position: center top; /* Position repeating pattern */
+
+  /* Remove 3D transforms */
+  /* transform: translateZ(-0.5px) scale(1.5); */ 
+  will-change: transform; /* Hint for performance */
+}
+
