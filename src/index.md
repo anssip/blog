@@ -11,7 +11,7 @@ eleventyNavigation:
 
 # Welcome
 
-I'm a software developer from Finland. I enjoy building software for any platform, but I have a special interest in web development. 
+I'm a software developer from Finland. I enjoy building software for any platform, but I have a special interest in web development.
 
 I'm probably still best known as the founder of a well known online video player and video platform, _Flowplayer_. Since
 leading the company for 10 years, I've been working on various projects as a freelancer and consultant, and also
@@ -19,13 +19,14 @@ as an employee in a few companies. I like to learn new things and I'm always loo
 
 ## Projects
 
-I have a few projects that I'm working on. The most interesting one is a betting platform that I'm building, called 
-Parabolic Bet. You can find the code repositories here: [backend](https://github.com/anssip/ultrabet) and [frontend](https://github.com/anssip/ultrabet-ui).
+Here are a few projects I've been working on:
 
-Another one is a password manager called [Passlane](https://github.com/anssip/passlane).
+My latest project is [SpotCanvas](https://www.spotcanvas.com), a trading chart app aiming to provide a compelling alternative to existing platforms. It also serves as my vibe coding playground.
+
+I also developed a betting platform called Parabolic Bet. You can find the code repositories here: [backend](https://github.com/anssip/ultrabet) and [frontend](https://github.com/anssip/ultrabet-ui).
+
+Additionally, I built and continue to maintain [Passlane](https://github.com/anssip/passlane), a password manager. A new version with feature improvements is planned for the future.
 
 ## Blog
 
 Check out my blog [here](/blog.html)
-
-

@@ -1,5 +1,9 @@
 # anssipiirainen.com
 
+## Deployment
+
+This blog is deployed to S3 using github actions workflow.
+
 ## Folders
 
 ```bash
