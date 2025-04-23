@@ -23,10 +23,11 @@
   header,
   footer {
     @apply border-zinc-300 dark:border-zinc-800;
+
   }
   header {
     @apply flex items-center justify-between gap-5 flex-col border-b;
-    @apply sticky top-0 z-10 bg-zinc-100 dark:bg-zinc-900;
+    @apply sticky top-0 z-10 bg-zinc-100/80 dark:bg-zinc-900/80;
   }
   hgroup {
     @apply inline-block align-middle hover:text-sky-600;
@@ -77,7 +78,9 @@
     @apply no-underline font-extrabold;
   }
   footer {
-    @apply border-t flex flex-col-reverse justify-between gap-5;
+    /* Apply base styles, positioning, and semi-transparent background */
+    @apply border-t flex flex-col-reverse justify-between gap-5 
+           fixed bottom-0 left-0 w-full bg-white/80 dark:bg-zinc-900/80 z-10;
   }
   .credit {
     @apply grow text-center;
@@ -102,25 +105,11 @@
   header {
     @apply gap-6;
   }
-  header,
-  main,
-  article,
-  footer {
-    @apply py-7 px-3;
-  }
-  main,
-  article {
-    @apply my-2.5;
-  }
-  .title {
-    @apply text-4xl;
-  }
-  .motto {
-    @apply text-center;
-  }
-  .elenco-posts {
-    @apply gap-6;
-  }
+  /* Remove incorrect rules from here */
+  /*
+  .parallax-cross-horizontal { ... }
+  .parallax-cross-vertical { ... } 
+  */
 }
 
 @screen md {
@@ -168,6 +157,22 @@
   .social {
     @apply grow-0 gap-7 justify-end;
   }
+  .parallax-cross-horizontal {
+    height: 300px; /* Medium height */
+  }
+  .parallax-cross-vertical {
+    width: 300px; /* Medium width */
+  }
+}
+
+/* Add rules for large screens */
+@screen lg {
+  .parallax-cross-horizontal {
+    height: 400px; /* Large height */
+  }
+  .parallax-cross-vertical {
+    width: 400px; /* Large width */
+  }
 }
 
 @screen xl {
@@ -183,6 +188,7 @@
   main,
   article {
     @apply max-w-screen-md mb-4;
+    padding-top: 100px; 
   }
   .social {
     @apply grow-0 gap-8 justify-end;
@@ -202,42 +208,59 @@
   main,
   article {
     @apply max-w-screen-lg mb-5;
+    padding-top: 100px; 
   }
   .social {
     @apply grow-0 gap-9 justify-end;
   }
 }
 
-
-/* Parallax Strip Styles for JS Control */
-.parallax-strip-container {
-  position: fixed; /* Needed for absolute positioning of child */
-  height: 500px; /* Keep the desired height */
-  width: 100%;
-  overflow: hidden;
-  top: 300px;
-  left: 0;
-  right: 0;
+/* New Parallax Cross Styles */
+.parallax-cross-horizontal,
+.parallax-cross-vertical {
+  position: fixed;
+  /* Common background styles */
+  background-image: url('/images/chip.png'); 
+  background-size: 100px; 
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: 0 0; /* Explicitly set position */
+  /* Restore default z-index */
+  z-index: -1;
 }
 
-.parallax-strip-background {
-  position: relative;
+.parallax-cross-horizontal {
   left: 0;
-  right: 0;
-  top: 0; /* Initial position, JS will adjust */
-  /* Make taller than container to allow movement */
-  /* Adjust percentage based on desired scroll range/speed */
-  height: 200%; 
-  z-index: -1; /* Keep behind content */
-  
-  /* Background image (Assuming path is correct now) */
-  background-image: url('/images/hard-drives.png'); 
-  background-size: 300px; 
-  background-repeat: repeat;
-  background-position: center top; /* Position repeating pattern */
+  width: 100%;
+  height: 150px; /* Base height for mobile */
+  top: 35%; 
+  transform: translateY(-50%); 
+}
 
-  /* Remove 3D transforms */
-  /* transform: translateZ(-0.5px) scale(1.5); */ 
-  will-change: transform; /* Hint for performance */
+.parallax-cross-vertical {
+  top: 0;
+  height: 100%;
+  width: 150px; /* Base width for mobile */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Responsive Parallax Cross Styles (Outside @layer base) */
+@screen md {
+  .parallax-cross-horizontal {
+    height: 300px; /* Medium height */
+  }
+  .parallax-cross-vertical {
+    width: 300px; /* Medium width */
+  }
+}
+
+@screen lg {
+  .parallax-cross-horizontal {
+    height: 400px; /* Large height */
+  }
+  .parallax-cross-vertical {
+    width: 400px; /* Large width */
+  }
 }
 
