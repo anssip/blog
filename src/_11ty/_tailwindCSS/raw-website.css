@@ -13,7 +13,7 @@
   main,
   article,
   footer {
-    @apply py-6 px-0;
+    @apply py-3 px-0;
   }
   header,
   footer {
@@ -21,7 +21,7 @@
 
   }
   header {
-    @apply flex items-center justify-between gap-5 flex-col border-b;
+    @apply flex items-center justify-between gap-3 flex-col border-b;
     @apply sticky top-0 z-10 bg-zinc-100 dark:bg-zinc-900;
   }
   hgroup {
@@ -50,13 +50,13 @@
   }
   main,
   article {
-    @apply prose prose-sky dark:prose-invert dark:prose-p:text-slate-50 dark:prose-li:text-slate-50 dark:prose-lead:text-slate-100 prose-lead:font-light text-justify my-2 px-5 pb-40;
+    @apply prose prose-sky dark:prose-invert dark:prose-p:text-slate-50 dark:prose-li:text-slate-50 dark:prose-lead:text-slate-100 prose-lead:font-light text-justify my-4 px-5;
     position: relative; /* Needed for z-index stacking if required */
     z-index: 1;         /* Ensure content is above background strip if needed */
     background-color: rgba(255, 255, 255, 0.6);
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    padding-bottom: 10rem; /* Base bottom padding */
-    top: 100px;
+    padding-top: 150px; /* Increased top padding */
+    padding-bottom: 15rem; /* Increased bottom padding */
   }
   h1,
   article > small.info {
@@ -72,9 +72,8 @@
     @apply no-underline font-extrabold;
   }
   footer {
-    /* Apply base styles, positioning, and semi-transparent background */
-    @apply border-t flex flex-col-reverse justify-between gap-5 
-           fixed bottom-0 left-0 w-full bg-white/80 dark:bg-zinc-900/80 z-10;
+    @apply flex-col-reverse justify-between gap-5 
+          border-t border-b bg-white/80 dark:bg-zinc-900/80 z-10;
   }
   .credit {
     @apply grow text-center;
@@ -96,15 +95,11 @@
   html {
     @apply px-6 text-lg;
   }
-  header {
-    @apply gap-6;
-  }
+  header,
   main,
-  article {
-    @apply my-2.5 mx-auto;
-  }
-  .parallax-cross-vertical {
-    top: 80px; /* Explicitly set for sm */
+  article,
+  footer {
+    @apply py-4 px-3;
   }
 }
 
@@ -113,13 +108,13 @@
     @apply px-7 text-xl;
   }
   header {
-    @apply gap-7 flex-row;
+    @apply gap-4 flex-row;
   }
   header,
   main,
   article,
   footer {
-    @apply py-8 px-4;
+    @apply py-5 px-4;
   }
   .title {
     @apply text-left text-5xl;
@@ -180,13 +175,13 @@
   main,
   article,
   footer {
-    @apply py-9 px-4;
+    @apply py-6 px-4;
   }
   main,
   article {
     @apply max-w-screen-md mx-auto;
-    padding-top: 100px; 
-    padding-bottom: 10rem; /* Ensure bottom padding applies */
+    padding-top: 150px; /* Increased top padding */
+    padding-bottom: 15rem; /* Increased bottom padding */
   }
   .social {
     @apply grow-0 gap-8 justify-end;
@@ -201,13 +196,13 @@
   main,
   article,
   footer {
-    @apply py-10 px-5;
+    @apply py-7 px-5;
   }
   main,
   article {
     @apply max-w-screen-lg mx-auto;
-    padding-top: 100px; 
-    padding-bottom: 10rem; /* Ensure bottom padding applies */
+    padding-top: 150px; /* Increased top padding */
+    padding-bottom: 15rem; /* Increased bottom padding */
   }
   .social {
     @apply grow-0 gap-9 justify-end;
@@ -229,13 +224,6 @@
 .parallax-cross-horizontal,
 .parallax-cross-vertical {
   position: absolute; /* Position relative to wrapper now */
-  /* Removed background styles */
-  /* background-image: ... */ 
-  /* background-size: ... */ 
-  /* background-repeat: ... */
-  /* background-attachment: ... */
-  /* background-position: ... */
-  /* filter: ... */
   z-index: -1; /* Keep containers behind content, but allow inner bg to be visible */
   /* Add relative positioning and overflow */
   position: relative;
@@ -252,9 +240,8 @@
 }
 
 .parallax-cross-vertical {
-  top: 
-  60px;
-  height: 100%; /* Cover remaining viewport height */
+  top: -300px;
+  height: calc(100% + 300px); /* Cover remaining viewport height */
   width: 100px; /* Base width for mobile */
   left: 50%;
   transform: translateX(-50%);
@@ -284,7 +271,6 @@
   }
   .parallax-cross-vertical {
     width: 300px; /* Medium width */
-    top: -100px; /* Re-add missing top style */
   }
 }
 
@@ -294,7 +280,6 @@
   }
   .parallax-cross-vertical {
     width: 400px; /* Large width */
-    top: -200px; /* Re-add missing top style */
   }
 }
 
