@@ -4,12 +4,7 @@
 
 @layer base {
   html {
-    @apply px-5 bg-zinc-100 dark:bg-zinc-900 font-serif text-base text-slate-900 dark:text-slate-100 transition-all;
-    /* Removed fixed background from html */
-    /* background-image: url('/img/hard-drive.png'); */
-    /* background-size: 300px; */
-    /* background-repeat: repeat; */
-    /* background-attachment: fixed; */
+    @apply bg-zinc-100 dark:bg-zinc-900 font-serif text-base text-slate-900 dark:text-slate-100 transition-all; 
   }
   body {
     @apply container mx-auto;
@@ -27,7 +22,7 @@
   }
   header {
     @apply flex items-center justify-between gap-5 flex-col border-b;
-    @apply sticky top-0 z-10 bg-zinc-100/50 dark:bg-zinc-900/50;
+    @apply sticky top-0 z-10 bg-zinc-100 dark:bg-zinc-900;
   }
   hgroup {
     @apply inline-block align-middle hover:text-sky-600;
@@ -55,14 +50,13 @@
   }
   main,
   article {
-    @apply prose prose-sky dark:prose-invert dark:prose-p:text-slate-50 dark:prose-li:text-slate-50 dark:prose-lead:text-slate-100 prose-lead:font-light mx-auto text-justify my-2;
-    @apply bg-zinc-100 dark:bg-zinc-900;
+    @apply prose prose-sky dark:prose-invert dark:prose-p:text-slate-50 dark:prose-li:text-slate-50 dark:prose-lead:text-slate-100 prose-lead:font-light text-justify my-2 px-5 pb-40;
     position: relative; /* Needed for z-index stacking if required */
     z-index: 1;         /* Ensure content is above background strip if needed */
-    /* semi-transparent background */
     background-color: rgba(255, 255, 255, 0.8);
-    /* add drop shadow */
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    padding-bottom: 10rem; /* Base bottom padding */
+    top: 100px;
   }
   h1,
   article > small.info {
@@ -105,11 +99,13 @@
   header {
     @apply gap-6;
   }
-  /* Remove incorrect rules from here */
-  /*
-  .parallax-cross-horizontal { ... }
-  .parallax-cross-vertical { ... } 
-  */
+  main,
+  article {
+    @apply my-2.5 mx-auto;
+  }
+  .parallax-cross-vertical {
+    top: 80px; /* Explicitly set for sm */
+  }
 }
 
 @screen md {
@@ -139,7 +135,7 @@
   }
   main,
   article {
-    @apply my-3;
+    @apply my-3 mx-auto;
   }
   h1,
   article > small.info {
@@ -162,6 +158,7 @@
   }
   .parallax-cross-vertical {
     width: 300px; /* Medium width */
+    top: -200px; /* Re-add missing top style */
   }
 }
 
@@ -187,8 +184,9 @@
   }
   main,
   article {
-    @apply max-w-screen-md mb-4;
+    @apply max-w-screen-md mx-auto;
     padding-top: 100px; 
+    padding-bottom: 10rem; /* Ensure bottom padding applies */
   }
   .social {
     @apply grow-0 gap-8 justify-end;
@@ -207,8 +205,9 @@
   }
   main,
   article {
-    @apply max-w-screen-lg mb-5;
+    @apply max-w-screen-lg mx-auto;
     padding-top: 100px; 
+    padding-bottom: 10rem; /* Ensure bottom padding applies */
   }
   .social {
     @apply grow-0 gap-9 justify-end;
@@ -246,16 +245,15 @@
 .parallax-cross-horizontal {
   left: 0;
   width: 100%;
-  height: 150px; /* Base height for mobile */
-  top: 35%; 
+  height: 200px; /* Base height for mobile */
+  top: 45%; 
   transform: translateY(-50%); 
   /* Removed drop shadow from here */
 }
 
 .parallax-cross-vertical {
-  top: -350px; /* Push further up */
-  height: calc(100% + 500px); /* Increase height to match */
-  width: 150px; /* Base width for mobile */
+  height: 100%; /* Cover remaining viewport height */
+  width: 200px; /* Base width for mobile */
   left: 50%;
   transform: translateX(-50%);
 }
@@ -265,7 +263,7 @@
   position: absolute;
   inset: 0;
   /* Make taller/wider */
-  height: calc(120% + 500px); /* Increase height further */
+  height: 120%; /* Keep height relative to container */
   width: 120%;
   /* Apply background styles here */
   background-image: url('/images/chip.png'); 
@@ -284,6 +282,7 @@
   }
   .parallax-cross-vertical {
     width: 300px; /* Medium width */
+    top: -100px; /* Re-add missing top style */
   }
 }
 
@@ -293,6 +292,7 @@
   }
   .parallax-cross-vertical {
     width: 400px; /* Large width */
+    top: -200px; /* Re-add missing top style */
   }
 }
 
