@@ -23,7 +23,8 @@ module.exports = function (eleventyConfig) {
     .addPassthroughCopy({ "src/_11ty/_static/app/*.*": "/" })
     .addPassthroughCopy({ "src/_11ty/_static/favicon": "favicon" })
     .addPassthroughCopy({ "src/_11ty/_static/img": "img" })
-    .addPassthroughCopy({ "src/images": "images" });
+    .addPassthroughCopy({ "src/images": "images" })
+    .addPassthroughCopy({ "src/_11ty/_static/js": "js" });
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("image", imageShortcode);

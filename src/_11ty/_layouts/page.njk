@@ -10,15 +10,23 @@ type: website
 <!-- Start Body -->
 <body>
     {% include "nav.njk" %}
-    <!-- Parallax Cross -->
-    <div class="parallax-cross-horizontal"></div>
-    <div class="parallax-cross-vertical"></div>
+    <!-- Rotated Parallax Cross Wrapper -->
+    <div class="parallax-cross-wrapper">
+        <!-- Parallax Cross -->
+        <div class="parallax-cross-horizontal">
+            <div class="parallax-background-element"></div>
+        </div>
+        <div class="parallax-cross-vertical">
+            <div class="parallax-background-element"></div>
+        </div>
+    </div>
     <!-- Main Content -->
     <main>
         {{content | safe}}
         <!-- Removed temporary content -->
     </main>
     {% include "footer.njk" %}
+    <script src="/js/parallax.js"></script>
 </body>
 <!-- End Body -->
 </html>
