@@ -100,6 +100,12 @@
     .icon:focus-within {
         @apply hover:stroke-sky-600;
     }
+    .photo-credit {
+        @apply text-xs text-gray-600 -mt-3 mb-4 italic text-center;
+    }
+    .photo-credit a {
+        @apply text-gray-600 hover:text-sky-600;
+    }
 }
 
 @screen sm {
