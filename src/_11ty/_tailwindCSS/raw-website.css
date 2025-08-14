@@ -165,23 +165,6 @@
     .social {
         @apply grow-0 gap-7 justify-end;
     }
-    .parallax-cross-horizontal {
-        height: 300px; /* Medium height */
-    }
-    .parallax-cross-vertical {
-        width: 300px; /* Medium width */
-        top: -200px; /* Re-add missing top style */
-    }
-}
-
-/* Add rules for large screens */
-@screen lg {
-    .parallax-cross-horizontal {
-        height: 400px; /* Large height */
-    }
-    .parallax-cross-vertical {
-        width: 400px; /* Large width */
-    }
 }
 
 @screen xl {
@@ -236,66 +219,4 @@
     /* overflow: hidden; */ /* Removed to allow children to extend */
     transform: rotate(5deg); /* Apply rotation */
     transform-style: preserve-3d; /* Ensure child transforms work */
-}
-
-.parallax-cross-horizontal,
-.parallax-cross-vertical {
-    position: absolute; /* Position relative to wrapper now */
-    z-index: -1; /* Keep containers behind content, but allow inner bg to be visible */
-    /* Add relative positioning and overflow */
-    position: relative;
-    overflow: hidden;
-}
-
-.parallax-cross-horizontal {
-    left: 0;
-    width: 100%;
-    height: 100px; /* Base height for mobile */
-    top: 40%;
-    transform: translateY(-50%);
-    /* Removed drop shadow from here */
-}
-
-.parallax-cross-vertical {
-    top: -300px;
-    height: calc(100% + 300px); /* Cover remaining viewport height */
-    width: 100px; /* Base width for mobile */
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* New inner background element styles */
-.parallax-background-element {
-    position: absolute;
-    inset: 0;
-    /* Make taller/wider */
-    height: 120%; /* Keep height relative to container */
-    width: 120%;
-    /* Apply background styles here */
-    background-image: url("/images/chip.png");
-    background-size: 100px;
-    background-repeat: repeat;
-    /* Add drop shadow here (optional) */
-    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));
-    /* Performance hint */
-    will-change: transform;
-}
-
-/* Responsive Parallax Cross Container Styles */
-@screen md {
-    .parallax-cross-horizontal {
-        height: 300px; /* Medium height */
-    }
-    .parallax-cross-vertical {
-        width: 300px; /* Medium width */
-    }
-}
-
-@screen lg {
-    .parallax-cross-horizontal {
-        height: 400px; /* Large height */
-    }
-    .parallax-cross-vertical {
-        width: 400px; /* Large width */
-    }
 }
