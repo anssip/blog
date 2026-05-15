@@ -1,6 +1,7 @@
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 const readingTime = require("eleventy-plugin-reading-time");
 const imageShortcode = require("./src/_11ty/shortcodes/image.js");
+const pictureShortcode = require("./src/_11ty/shortcodes/picture.js");
 const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 const htmlmin = require("html-minifier");
@@ -25,6 +26,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("image", imageShortcode);
+  eleventyConfig.addNunjucksAsyncShortcode("picture", pictureShortcode);
 
   eleventyConfig.addTransform("htmlmin", (content, outputPath) => {
     if (outputPath.endsWith(".html")) {

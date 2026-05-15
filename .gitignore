@@ -17,6 +17,9 @@ src/_11ty/_static/favicon
 # local test artifacts
 .playwright-cli
 
+# Claude Code local metadata
+.claude
+
 # design handoff (to be removed after redesign deploy)
 design.zip
 design_handoff_anssipiirainen_blog

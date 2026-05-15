@@ -684,7 +684,7 @@ body { padding: 1.5rem var(--main-border) 0 var(--main-border); }
   isolation: isolate;
   background: var(--color-placeholder);
 }
-.gcard > img {
+.gcard img {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -693,7 +693,7 @@ body { padding: 1.5rem var(--main-border) 0 var(--main-border); }
   z-index: 0;
   transition: transform 600ms var(--ease), filter var(--dur) var(--ease);
 }
-.gcard:hover > img {
+.gcard:hover img {
   transform: scale(1.04);
 }
 .gcard::after {

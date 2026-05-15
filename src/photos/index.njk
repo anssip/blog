@@ -14,7 +14,7 @@ permalink: /photos/
     <div class="gallery-grid">
       {% for g in galleries %}
         <a class="gcard" href="/photos/{{ g.id }}/">
-          <img src="{{ g.cover }}" alt="" />
+          {% picture g.cover, "", [600, 1000, 1400], "(max-width: 768px) 100vw, 50vw" %}
           <div class="goverlay">
             <div class="grow">
               <div class="gpill">{{ g.photos.length }} photos</div>

@@ -15,7 +15,28 @@ permalink: /
   {% if posts.length > 0 %}
     <div class="post-list">
       {% for post in posts %}
-        {% include "post-card.njk" %}
+        <a class="pc" href="{{ post.url }}">
+          <div class="pc-img">
+            {% if post.data.cover %}{% picture post.data.cover, "", [220, 440, 768], "(max-width: 768px) 100vw, 220px" %}{% endif %}
+          </div>
+          <div class="pc-body">
+            <h3 class="pc-title">{{ post.data.title }}</h3>
+            <p class="pc-sub">{{ post.data.excerpt or post.data.description }}</p>
+            <div class="pc-meta">
+              <span class="pc-date">{{ post.date | readableDate }}</span>
+              <span class="pc-read">{{ post.data.read or "1 min" }}</span>
+              {% if post.data.tags %}
+                <span class="pc-tags">
+                  {% for t in post.data.tags %}
+                    {% if t != "post" and t != "posts" %}
+                      <span class="pc-tag">{{ t }}</span>
+                    {% endif %}
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+        </a>
       {% endfor %}
     </div>
   {% endif %}

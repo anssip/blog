@@ -26,7 +26,7 @@ eleventyComputed:
     <div class="pgrid">
       {% for p in gallery.photos %}
         <a class="ptile" href="{{ p.src }}">
-          <img src="{{ p.src }}" alt="{{ p.cap }}" />
+          {% picture p.src, p.cap, [400, 800, 1200], "(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" %}
           <div class="ptile-caption">{{ p.cap }}</div>
         </a>
       {% endfor %}
