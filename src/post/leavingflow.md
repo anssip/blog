@@ -6,6 +6,7 @@ tags: ["flowplayer", "work", "career"]
 luogo: Espoo, Finland
 layout: article.njk
 permalink: "/blog/{{ title | slug }}.html"
+cover: /images/leavingflow.jpg
 ---
 
 {% image "./src/images/leavingflow.jpg", "My iMac" %}

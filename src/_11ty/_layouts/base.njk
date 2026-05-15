@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="{{ meta.lang }}" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if excerpt %}{{ excerpt }}{% elif description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}" />
+  <meta name="author" content="{{ meta.authorName }}" />
+  <meta name="robots" content="{{ meta.robots }}" />
+
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/blog.css" />
+
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="/feed.xml" />
+
+  <meta property="og:type" content="{% if type %}{{ type }}{% else %}website{% endif %}" />
+  <meta property="og:locale" content="{{ meta.language }}" />
+  <meta property="og:title" content="{% if title %}{{ title }} — {% endif %}{{ site.title }}" />
+  <meta property="og:description" content="{% if excerpt %}{{ excerpt }}{% elif description %}{{ description }}{% else %}{{ meta.siteDescription }}{% endif %}" />
+  <meta property="og:url" content="{{ meta.url }}{{ page.url }}" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@{{ meta.twitterUser }}" />
+  <meta name="twitter:creator" content="@{{ meta.twitterUser }}" />
+
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <meta name="theme-color" content="{{ meta.themeColor }}" />
+  {% include "favicon.njk" %}
+
+  <script>
+    if ("serviceWorker" in navigator) navigator.serviceWorker.register("/sw.js");
+  </script>
+
+  <script>
+    /* Theme toggle — set theme before paint to avoid flash. */
+    (function () {
+      var t = localStorage.getItem("theme") || "dark";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMZ6XGCWZW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LMZ6XGCWZW');
+  </script>
+</head>
+<body>
+  {% include "header.njk" %}
+
+  <main class="page">
+    {{ content | safe }}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script>
+    window.toggleTheme = function () {
+      var cur = document.documentElement.getAttribute("data-theme");
+      var next = cur === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      localStorage.setItem("theme", next);
+      var btn = document.querySelector(".theme-btn");
+      if (btn) btn.textContent = next === "dark" ? "☼" : "☾";
+    };
+    (function () {
+      var btn = document.querySelector(".theme-btn");
+      if (btn) {
+        var t = document.documentElement.getAttribute("data-theme");
+        btn.textContent = t === "dark" ? "☼" : "☾";
+      }
+    })();
+  </script>
+</body>
+</html>

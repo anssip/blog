@@ -7,6 +7,7 @@ published: true
 tags: ["code", "programming", "sports", "betting", "graphql", "nextjs", "kotlin", "aws", "vercel", "auth0", "igaming"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/soccer.png
 ---
 
 {% image "./src/images/soccer.png", "Soccer game" %}

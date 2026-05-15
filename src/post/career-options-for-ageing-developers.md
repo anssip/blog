@@ -6,6 +6,7 @@ tags: ["career", "programming", "ageing"]
 luogo: Espoo, Finland
 layout: article.njk
 permalink: "/blog/{{ title | slug }}.html"
+cover: /images/timeglass.jpg
 ---
 
 {% image "./src/images/timeglass.jpg" "Time glass running half empty" %}

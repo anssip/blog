@@ -1,14 +1,15 @@
 ---
-title: Oops! Not Found
-layout: page.njk
+title: Not found
+layout: base.njk
 permalink: /404.html
-keyword: error 404
 eleventyExcludeFromCollections: true
 dynamicPermalink: false
 ---
 
-<h1>404 error!</h1>
-<p>
-    <span class="lead">{{title}}</span></br>
-    This is where you should tell the user how to find their content. Maybe on the <a href="{{'/' | url}}">home page?</a>
-</p>
+<div class="shell">
+  <section class="hero">
+    <h1 class="heading1">404</h1>
+    <h2 class="sub-title">Page not found</h2>
+    <p class="lede">The page you are looking for is not here. Try the <a href="/">home page</a> or browse <a href="/photos/">photos</a>.</p>
+  </section>
+</div>

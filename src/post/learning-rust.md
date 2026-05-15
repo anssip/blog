@@ -7,6 +7,7 @@ published: true
 tags: ["code", "programming", "password-manager", "CLI", "Rust"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/eagle.webp
 ---
 
 {% image "./src/images/eagle.webp", "Eagle", "400", "400" %}

@@ -7,6 +7,7 @@ published: true
 tags: ["javascript", "typescript", "functional programming", "node.js"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/knowledge.jpg
 ---
 
 {% image "./src/images/knowledge.jpg", "Knowledge is power", "700", "450" %}

@@ -1,0 +1,355 @@
+/* =========================================================================
+   anssi.dev — Design Tokens
+   Pulled DIRECTLY from monokai.com's stylesheet (appCbK8.css). Adapted for
+   Anssi's personal blog with light + dark theme. The accent is single
+   (#ff7a3a) across the site — there are no per-category accents. The six
+   "code accents" only appear inside <pre> syntax highlighting.
+   ========================================================================= */
+
+@import url("./fonts.css");
+
+/* ============================================================== Themes === */
+
+:root,
+[data-theme="dark"] {
+  /* Neutrals — green-tinted near-black (differentiates from monokai's warm-plum) */
+  --color-base:               #000;
+  --color-contrast:           #fff;
+  --color-background:         #141815;
+  --color-placeholder:        #1c211d;
+  --color-placeholder-hover:  #262b28;
+  --color-text:               #f1ebe7;
+  --color-text-dim:           #5d6560;
+  --color-text-subtle:        #a3a8a4;
+
+  /* Brand accent — single, site-wide (tuned per-theme for contrast) */
+  --color-accent:             #ff8c4a;
+
+  /* Monokai Pro syntax palette — for code blocks only */
+  --code-dark2:               #19181a;
+  --code-dark1:               #221f22;
+  --code-background:          #2d2a2e;
+  --code-text:                #fcfcfa;
+  --code-accent1:             #ff6188;  /* pink   */
+  --code-accent2:             #fc9867;  /* orange */
+  --code-accent3:             #ffd866;  /* yellow */
+  --code-accent4:             #a9dc76;  /* green  */
+  --code-accent5:             #78dce8;  /* cyan   */
+  --code-accent6:             #ab9df2;  /* violet */
+  --code-dimmed1:             #c1c0c0;
+  --code-dimmed2:             #939293;
+  --code-dimmed3:             #727072;
+  --code-dimmed4:             #5b595c;
+  --code-dimmed5:             #403e41;
+  --code-panel:               var(--code-dimmed5);
+}
+
+[data-theme="light"] {
+  --color-base:               #fff;
+  --color-contrast:           #000;
+  --color-background:         #e8ede7;
+  --color-placeholder:        #dde3dc;
+  --color-placeholder-hover:  #e3e8e2;
+  --color-text:               #141815;
+  --color-text-dim:           #a8aca8;
+  --color-text-subtle:        #666966;
+  --color-accent:             #c45a1a;
+
+  --code-dark2:               #e0dad9;
+  --code-dark1:               #ede7e5;
+  --code-background:          #faf4f2;
+  --code-text:                #29242a;
+  --code-accent1:             #e14775;
+  --code-accent2:             #e16032;
+  --code-accent3:             #cc7a0a;
+  --code-accent4:             #269d69;
+  --code-accent5:             #1c8ca8;
+  --code-accent6:             #7058be;
+  --code-dimmed1:             #706b6e;
+  --code-dimmed2:             #918c8e;
+  --code-dimmed3:             #a59fa0;
+  --code-dimmed4:             #bfb9ba;
+  --code-dimmed5:             #d3cdcc;
+  --code-panel:               #fefaf9;
+}
+
+/* P3 widegamut accent where supported, per theme */
+@supports (color: color(display-p3 0 0 0)) {
+  :root,
+  [data-theme="dark"]  { --color-accent: color(display-p3 1 0.56 0.30); }
+  [data-theme="light"] { --color-accent: color(display-p3 0.74 0.36 0.12); }
+}
+
+/* ============================================================ Type === */
+
+:root {
+  /* Free font stack — see fonts/fonts.css for the substitution map. */
+  --font-sans:    "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Newsreader", ui-serif, "Iowan Old Style", Georgia, serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* Type scale — rem-based, matches monokai.com's clamps */
+  --t-hero-size:  4rem;      /* 64px @ root */
+  --t-h1-size:    2.75rem;   /* 44px — article title */
+  --t-h2-size:    2.75rem;
+  --t-h3-size:    2rem;
+  --t-body-size:  1.3rem;    /* ~20px @ root */
+  --t-meta-size:  0.9rem;    /* ~14px */
+  --t-small-size: 0.72rem;
+  --t-small-uppercase-size: 0.648rem;
+
+  --line-tight:   1;
+  --line-body:    1.55;
+
+  /* ============================================================ Layout === */
+  --max-w:        1440px;
+  --main-border:  32px;
+  --header-h:     3rem;
+  --gap:          0.5rem;
+  --border-radius: 4px;
+  --photo-radius: 0.75rem;
+
+  /* ============================================================ Spacing scale ===
+     Matches monokai.com's .mt0 / .mt2 / .mt4 / .mt6 / .mt8 / .mt10 / .mt12 system
+     (.5rem step from index 0; 2 = 2.5rem, 4 = 5rem, 6 = 7.5rem etc) */
+  --s-0:  0;
+  --s-2:  2.5rem;
+  --s-4:  5rem;
+  --s-6:  7.5rem;
+  --s-8:  10rem;
+  --s-10: 12.5rem;
+  --s-12: 15rem;
+
+  /* ============================================================ Motion === */
+  --ease: cubic-bezier(0.35, 0.35, 0, 1);
+  --dur:  0.25s;
+  --dur-slow: 0.85s;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --s-2: 2rem; --s-4: 4rem; --s-6: 6rem; --s-8: 8rem; --s-10: 10rem; --s-12: 12rem;
+  }
+}
+
+/* =========================================================== Base styles === */
+
+* , *::before, *::after { box-sizing: border-box; }
+
+html {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 400;                         /* Hanken Grotesk Regular */
+  font-size: clamp(12px, 1.5vw, 15.5px);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 1.5rem var(--main-border) 0 var(--main-border);
+  accent-color: var(--color-accent);
+}
+
+/* Selection inverts: text becomes background, background becomes text. */
+::selection { background: var(--color-text); color: var(--color-background); }
+
+/* ----- Headings — Newsreader, semi-bold, with optical size up ----- */
+h1, h2, h3, h4, h5, h6,
+.heading1, .heading2, .heading3, .heading4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-variation-settings: "opsz" 72;
+  line-height: var(--line-tight);
+  letter-spacing: -0.01em;
+}
+
+h1, .heading1 {
+  font-size: var(--t-hero-size);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+  hyphens: auto;
+}
+h1.article, .heading1.article { font-size: var(--t-h1-size); }
+
+h2, .heading2 { font-size: var(--t-h2-size); text-wrap: balance; }
+h3, .heading3,
+h4, .heading4 { font-size: var(--t-h3-size); text-wrap: balance; }
+
+/* Sub-title — uppercase, accent color, light tracking. */
+.sub-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-variation-settings: "opsz" 36;
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  line-height: 1.2;
+}
+
+/* ----- Paragraphs — Hanken Grotesk regular ----- */
+p, .p {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: var(--t-body-size);
+  line-height: var(--line-body);
+  letter-spacing: -0.003em;
+}
+.p + .p { margin-top: 1.55em; }
+
+/* ----- Helper type roles — Hanken at higher weights/letterspacing ----- */
+.font-medium,
+.font-size-md {
+  font-weight: 500;
+  font-size: var(--t-meta-size);
+}
+.font-small,
+.font-size-xs {
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  font-size: var(--t-small-size);
+  line-height: 1.5;
+}
+.font-small-uppercase {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: var(--t-small-uppercase-size);
+  line-height: 1.4;
+}
+.font-medium-uppercase {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.81rem;
+  line-height: 1.4;
+}
+
+/* ----- Links — Newsreader italic, underlined, accent on hover ----- */
+a {
+  color: inherit;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 16;
+  text-decoration: underline;
+  text-decoration-color: var(--color-text-dim);
+  text-decoration-thickness: 1.25px;
+  text-underline-offset: 0.15rem;
+  white-space: nowrap;
+  transition: color var(--dur) var(--ease),
+              text-decoration-color var(--dur) var(--ease);
+}
+@media (hover: hover) {
+  a:hover, a:focus-visible {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+  }
+}
+
+/* When a link contains plain prose (not just an inline name), opt out. */
+a.plain {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  white-space: normal;
+  text-decoration: none;
+}
+
+/* ----- Italic accent — Newsreader italic for <em>/<strong> emphasis ----- */
+em, strong {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-variation-settings: "opsz" 16;
+}
+
+/* ----- Code ----- */
+pre, code {
+  font-family: var(--font-mono);
+  font-size: 0.95em;
+}
+p code, :not(pre) > code {
+  background-color: var(--color-placeholder);
+  border-radius: var(--border-radius);
+  padding: 0.25rem 0.5rem;
+}
+pre {
+  background: var(--code-background);
+  color: var(--code-text);
+  border-radius: var(--border-radius);
+  padding: 1.25rem 1.5rem;
+  line-height: 1.35;
+  font-size: 1rem;
+  overflow-x: auto;
+}
+/* Syntax-highlight tokens (used inside <pre>) — Monokai Pro palette */
+pre .kw   { color: var(--code-accent1); }   /* keywords  */
+pre .fn   { color: var(--code-accent4); }   /* functions */
+pre .str  { color: var(--code-accent3); }   /* strings   */
+pre .num  { color: var(--code-accent6); }   /* numbers   */
+pre .var  { color: var(--code-accent5); }   /* variables */
+pre .op   { color: var(--code-accent2); }   /* operators */
+pre .com  { color: var(--code-dimmed3); }   /* comments  */
+
+/* ----- Lists ----- */
+ul { list-style: none; margin: 0; padding: 0; }
+.ul { margin-top: 1.55em; padding-left: 1.5rem; line-height: var(--line-body); }
+.ul li::before {
+  content: "·";
+  color: var(--color-text-dim);
+  margin-left: -1.5rem;
+  position: absolute;
+  font-weight: 700;
+}
+
+/* ----- Focus ring ----- */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: -2px;
+  border-radius: var(--border-radius);
+}
+
+/* ----- HR ----- */
+hr {
+  background-color: var(--color-text-dim);
+  border: none;
+  height: 2px;
+  width: 12rem;
+  margin: 2.5rem 0;
+}
+
+/* ----- Buttons (chrome only — visual treatment per .btn classes below) ----- */
+button {
+  appearance: none;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: inherit;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* ----- Tag pill (1rem radius — the brand's pill shape) ----- */
+.tag-pill {
+  display: inline-block;
+  background-color: var(--color-placeholder);
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  white-space: nowrap;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: var(--t-meta-size);
+  margin-right: 0.5rem;
+}

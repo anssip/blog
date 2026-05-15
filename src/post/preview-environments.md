@@ -7,6 +7,7 @@ published: true
 tags: ["process", "ci/cd", "code review", "quality"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/pushbutton-walk.jpg
 ---
 
 {% image "./src/images/pushbutton-walk.jpg", "Traffic buttons" %}

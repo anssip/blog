@@ -7,6 +7,7 @@ published: true
 tags: ["emmy", "work", "career", "circulareconomy"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/emmy-logo.png
 ---
 
 {% image "./src/images/emmy-logo.png", "Emmy logo" 200 200 %}

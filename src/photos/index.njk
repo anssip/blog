@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Photos
+permalink: /photos/
+---
+
+<div class="shell">
+  <section class="photos" data-screen-label="photos-index">
+    <div class="photo-head">
+      <h1>photos</h1>
+      <div class="photo-head-note">A handful of galleries from trips and weekends.</div>
+    </div>
+
+    <div class="gallery-grid">
+      {% for g in galleries %}
+        <a class="gcard" href="/photos/{{ g.id }}/">
+          <img src="{{ g.cover }}" alt="" />
+          <div class="goverlay">
+            <div class="grow">
+              <div class="gpill">{{ g.photos.length }} photos</div>
+              <h3 class="gtitle">{{ g.title }}</h3>
+            </div>
+            <div class="gsub">{{ g.subtitle }}</div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>

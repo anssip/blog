@@ -7,6 +7,7 @@ published: true
 tags: [ "electron.js", "node.js", "react.js" ]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/building-electron.jpg
 ---
 
 {% image "./src/images/building-electron.jpg", "A rubber duck" %}

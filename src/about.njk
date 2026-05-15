@@ -1,0 +1,31 @@
+---
+layout: base.njk
+title: About
+permalink: /about/
+---
+
+<div class="shell">
+  <section class="about-page" data-screen-label="about">
+    <h1>about</h1>
+    <div class="about-grid">
+      <div class="portrait">
+        <img src="/images/anssi.jpg" alt="Anssi Piirainen" />
+      </div>
+      <div>
+        <p>
+          I'm <em>Anssi Piirainen</em> — a software developer from Finland. I enjoy building software for any platform, but I have a special interest in web development.
+        </p>
+        <p>
+          I'm probably still best known as the founder of <em>Flowplayer</em>, a well-known online video player and video platform. After leading the company for ten years I've been working as a freelancer, consultant, and employee on a variety of projects since.
+        </p>
+        <p>
+          This site is where I put things I want to be able to find again. The <a href="/feed.xml">RSS feed</a> is the closest thing to a subscribe button. If something on the site is wrong, <a href="mailto:{{ site.author.email }}">tell me</a>.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="/feed.xml">subscribe via rss</a>
+          <a class="btn secondary" href="mailto:{{ site.author.email }}">email me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,27 +1,39 @@
 ---
-title: Articolo del Blog
-description: Questa è la descrizione di uno degli articoli del blog
+layout: base.njk
 tags: post
-date: Created
-luogo: Espoo, Finland
 type: article
 ---
-<!DOCTYPE html>
-<html lang="it">
-{% include "head-article.njk" %}
-<!-- Start Body -->
-<body>
-    {% include "nav.njk" %}
-    <article>
-        <small class="info">
-            {{ luogo }}&nbsp;
-            <time datetime="{{page.date}}">{{page.date | buildDate}}</time>&nbsp;&ndash;&nbsp;
-            {{content | readingTime}}&nbsp;to&nbsp;read
-        </small>
-        <h1>{{ title }}</h1>
-        {{content | safe}}
-    </article>
-    {% include "footer.njk" %}
-</body>
-<!-- End Body -->
-</html>
+<article class="prose article" data-screen-label="post">
+  <header class="art-head">
+    <div class="art-meta">
+      {% if tag %}<span class="acc">{{ tag }}</span>{% endif %}
+      <span>{{ page.date | readableDate }}</span>
+      <span>{{ read or (content | readingTime) }}</span>
+    </div>
+    <h1 class="art-title">{{ title }}</h1>
+    {% if subtitle %}<h2 class="art-sub">{{ subtitle }}</h2>{% endif %}
+  </header>
+
+  <div class="art-body">
+    {{ content | safe }}
+  </div>
+
+  {% set previousPost = collections.visiblePosts | getPreviousCollectionItem(page) %}
+  {% set nextPost     = collections.visiblePosts | getNextCollectionItem(page) %}
+
+  <nav class="art-nav">
+    {% if nextPost %}
+      <a href="{{ nextPost.url }}">
+        <span class="lbl">← older</span>
+        <span class="ttl">{{ nextPost.data.title }}</span>
+      </a>
+    {% else %}<span></span>{% endif %}
+
+    {% if previousPost %}
+      <a class="right" href="{{ previousPost.url }}">
+        <span class="lbl">newer →</span>
+        <span class="ttl">{{ previousPost.data.title }}</span>
+      </a>
+    {% else %}<span></span>{% endif %}
+  </nav>
+</article>

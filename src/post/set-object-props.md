@@ -7,6 +7,7 @@ published: true
 tags: ["javascript", "code", "programming"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/object-mutation.png
 ---
 
 I often run into situations where I need to construct an object in JavaScript, and I want to set fields to this object conditionally. That could be an options object that I am passing as a parameter to some other function or API. I have only some of the field values available, and only those should be part of the parameter object.

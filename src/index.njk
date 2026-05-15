@@ -1,0 +1,22 @@
+---
+layout: base.njk
+title: ""
+permalink: /
+---
+
+<div class="shell">
+  <section class="hero" data-screen-label="home">
+    <h1 class="heading1">Anssi <span class="last">Piirainen</span></h1>
+    <h2 class="sub-title">{{ site.tagline }}</h2>
+    <p class="lede">{{ site.intro }}</p>
+  </section>
+
+  {% set posts = collections.visiblePosts | reverse %}
+  {% if posts.length > 0 %}
+    <div class="post-list">
+      {% for post in posts %}
+        {% include "post-card.njk" %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

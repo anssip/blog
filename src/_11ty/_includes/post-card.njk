@@ -1,0 +1,22 @@
+<a class="pc" href="{{ post.url }}">
+  <div class="pc-img">
+    {% if post.data.cover %}<img src="{{ post.data.cover }}" alt="" loading="lazy" />{% endif %}
+  </div>
+  <div class="pc-body">
+    <h3 class="pc-title">{{ post.data.title }}</h3>
+    <p class="pc-sub">{{ post.data.excerpt or post.data.description }}</p>
+    <div class="pc-meta">
+      <span class="pc-date">{{ post.date | readableDate }}</span>
+      <span class="pc-read">{{ post.data.read or "1 min" }}</span>
+      {% if post.data.tags %}
+        <span class="pc-tags">
+          {% for t in post.data.tags %}
+            {% if t != "post" and t != "posts" %}
+              <span class="pc-tag">{{ t }}</span>
+            {% endif %}
+          {% endfor %}
+        </span>
+      {% endif %}
+    </div>
+  </div>
+</a>
