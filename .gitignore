@@ -5,6 +5,9 @@ node_modules
 public
 src/_11ty/_social
 
+# gallery originals — synced from S3 (see `pnpm photos:push`)
+src/images/photos
+
 # secrets and errors
 .env
 .log

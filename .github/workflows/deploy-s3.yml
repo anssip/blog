@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build site
-        run: AWS_LAMBDA_FUNCTION_NAME=trickpuppeteer npm run build:ci
-
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -30,9 +27,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-north-1
 
+      - name: Sync gallery originals from S3
+        run: aws s3 sync s3://anssipiirainen.com/photos-src/ ./src/images/photos/
+
+      - name: Build site
+        run: AWS_LAMBDA_FUNCTION_NAME=trickpuppeteer npm run build:ci
+
       - name: Deploy to S3
         run: |
-          aws s3 sync ./public/ s3://anssipiirainen.com --delete --acl public-read
+          aws s3 sync ./public/ s3://anssipiirainen.com --delete --acl public-read --exclude 'photos-src/*'
 
       - name: Invalidate CloudFront
         run: |

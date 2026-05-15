@@ -4,6 +4,30 @@
 
 This blog is deployed to S3 using github actions workflow.
 
+## Photo galleries
+
+Gallery originals live under `src/images/photos/<gallery-id>/` and are **not**
+committed to git — they are mirrored to `s3://anssipiirainen.com/photos-src/`
+and pulled down by CI before each build. Gallery metadata (titles, captions,
+ordering) lives in `src/_11ty/_data/galleries.js`, which is committed.
+
+- `pnpm photos:push` — upload local originals to S3 (uses AWS profile
+  `anssipiirainen.com`, syncs with `--delete`).
+- `pnpm photos:pull` — fetch originals from S3 into the local working tree.
+
+### Claude Code skills
+
+Two project skills (under `.claude/skills/`) automate the editorial side:
+
+- `/gallery-create` — turn a directory of images into a new gallery: copies
+  files into `src/images/photos/<id>/`, slugifies filenames, and adds a new
+  entry to `galleries.js`.
+- `/gallery-add-photo` — import one or more images into an existing gallery
+  and append them to that gallery's `photos` array.
+
+Both skills leave the upload step to you: after running, push the new
+originals with `pnpm photos:push`.
+
 ## Folders
 
 ```bash

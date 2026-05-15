@@ -7,7 +7,9 @@
     "dev": "eleventy --serve --watch",
     "build": "eleventy",
     "build:ci": "run-s clean build",
-    "clean": "rimraf public"
+    "clean": "rimraf public",
+    "photos:push": "aws --profile anssipiirainen.com s3 sync ./src/images/photos/ s3://anssipiirainen.com/photos-src/ --delete --acl public-read",
+    "photos:pull": "aws --profile anssipiirainen.com s3 sync s3://anssipiirainen.com/photos-src/ ./src/images/photos/"
   },
   "keywords": [
     "Website",
