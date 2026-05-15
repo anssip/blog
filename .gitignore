@@ -20,8 +20,9 @@ src/_11ty/_static/favicon
 # local test artifacts
 .playwright-cli
 
-# Claude Code local metadata
-.claude
+# Claude Code local metadata — skills are tracked, everything else is local
+.claude/*
+!.claude/skills/
 
 # design handoff (to be removed after redesign deploy)
 design.zip
