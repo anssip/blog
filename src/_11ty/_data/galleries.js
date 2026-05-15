@@ -467,7 +467,7 @@ module.exports = [
     photos: [
       {
         src: "/images/photos/sunsets/high-and-dry.jpg",
-        cap: "HIgh and Dry"
+        cap: "High and Dry"
       },
       {
         src: "/images/photos/sunsets/lake-lighted.jpg",

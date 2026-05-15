@@ -266,6 +266,11 @@ a.plain {
   text-decoration: none;
 }
 
+/* Article body links can't opt into .plain — let them wrap. */
+.art-body a {
+  white-space: normal;
+}
+
 /* ----- Italic accent — Newsreader italic for <em>/<strong> emphasis ----- */
 em, strong {
   font-family: var(--font-display);
