@@ -5,6 +5,9 @@ node_modules
 public
 src/_11ty/_social
 
+# gallery originals — synced from S3 (see `pnpm photos:push`)
+src/images/photos
+
 # secrets and errors
 .env
 .log
@@ -13,3 +16,14 @@ src/_11ty/_social
 .idea
 
 src/_11ty/_static/favicon
+
+# local test artifacts
+.playwright-cli
+
+# Claude Code local metadata — skills are tracked, everything else is local
+.claude/*
+!.claude/skills/
+
+# design handoff (to be removed after redesign deploy)
+design.zip
+design_handoff_anssipiirainen_blog

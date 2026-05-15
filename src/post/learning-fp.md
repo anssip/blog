@@ -7,6 +7,7 @@ published: true
 tags: ["programming", "functional programming", "javascript", "node.js"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/carpenting.jpg
 ---
 
 {% image "./src/images/carpenting.jpg", "My iMac" %}

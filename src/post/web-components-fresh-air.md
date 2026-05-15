@@ -1,5 +1,5 @@
 ---
-title: Working with Web Components Has Been Like a Breath of Fresh Air
+title: Working with Web Components
 description: My experience switching from React to Web Components for the Spot Canvas project.
 date: 2025-04-24
 published: true
@@ -17,6 +17,7 @@ tags:
   ]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/spot-canvas.png
 ---
 
 {% image "./src/images/spot-canvas.png", "Spot Canvas logo", "100vw", "w-64 h-auto mx-auto" %}

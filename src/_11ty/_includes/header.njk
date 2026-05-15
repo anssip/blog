@@ -1,0 +1,14 @@
+<header class="hdr">
+  <div class="hdr-in">
+    <a class="brand" href="/">
+      Anssi <span class="last">Piirainen</span>
+    </a>
+    <nav>
+      {% for item in site.nav %}
+        <a href="{{ item.url }}"
+           class="{% if (page.url == item.url) or (page.url.startsWith('/post/') and item.id == 'home') or (page.url.startsWith('/photos/') and item.id == 'photos') %}active{% endif %}">{{ item.label }}</a>
+      {% endfor %}
+      <button class="theme-btn" onclick="toggleTheme()" aria-label="toggle theme">☼</button>
+    </nav>
+  </div>
+</header>

@@ -7,6 +7,7 @@ published: true
 tags: ["linux", "autokey", "programming"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/sergi-kabrera-keyboard.jpg
 ---
 
 {% image "./src/images/sergi-kabrera-keyboard.jpg", "Knowledge and keyboards mean power", "700", "450" %}

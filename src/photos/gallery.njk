@@ -1,0 +1,35 @@
+---
+layout: base.njk
+pagination:
+  data: galleries
+  size: 1
+  alias: gallery
+permalink: "/photos/{{ gallery.id }}/"
+eleventyComputed:
+  title: "{{ gallery.title }}"
+---
+
+<div class="shell">
+  <section class="photos" data-screen-label="gallery">
+    <a class="back-link" href="/photos/">
+      <span class="arrow">←</span> all galleries
+    </a>
+
+    <div class="photo-head">
+      <h1>{{ gallery.title }}</h1>
+      <div class="photo-head-note">
+        <span class="gpill static">{{ gallery.photos.length }} photos</span>
+        <span class="gsub">{{ gallery.subtitle }}</span>
+      </div>
+    </div>
+
+    <div class="pgrid">
+      {% for p in gallery.photos %}
+        <a class="ptile" href="{{ p.src }}">
+          {% picture p.src, p.cap, [400, 800, 1200], "(max-width: 480px) 100vw, (max-width: 768px) 50vw, 33vw" %}
+          <div class="ptile-caption">{{ p.cap }}</div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>

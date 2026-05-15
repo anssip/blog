@@ -7,6 +7,7 @@ published: true
 tags: ["process", "scrum", "agile", "kanban"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/sprint.jpg
 ---
 
 {% image "./src/images/sprint.jpg", "Sprinters on track" %}

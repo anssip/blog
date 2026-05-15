@@ -7,9 +7,14 @@ published: true
 tags: ["code", "programming", "sports", "betting", "graphql", "nextjs", "kotlin", "aws", "vercel", "auth0", "igaming"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/soccer.avif
 ---
 
-{% image "./src/images/soccer.png", "Soccer game" %}
+{% image "./src/images/soccer.avif", "Soccer game" %}
+
+<p class="photo-credit">
+Photo by Abigail Keenan on <a href="https://unsplash.com/photos/group-of-people-playing-soccer-on-soccer-field-8-s5QuUBtyM">Unsplash</a>
+</p>
 
 Over the past few months, I have been deeply engrossed in a new personal project: the development of a sports betting
 website. The genesis of this endeavor was a conversation with former colleagues who are currently engaged in the iGaming

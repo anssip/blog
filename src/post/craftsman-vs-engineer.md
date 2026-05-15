@@ -6,6 +6,7 @@ published: true
 tags: ["agile", "craftmanship", "XP", "quality", "code", "programming"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/woodworking.jpg
 ---
 
 {% image "./src/images/woodworking.jpg", "Woodworking", "100vw", "w-400 h-auto mx-auto" %}

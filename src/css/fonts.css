@@ -1,0 +1,17 @@
+/* =========================================================================
+   Anssi Piirainen — Webfont declarations
+   All fonts are free (Google Fonts, SIL OFL 1.1). No commercial licensing.
+   Replaces the original Söhne / Roslindale / Söhne Mono pairing used on
+   monokai.com with the closest free analogs.
+   ========================================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
+/*
+  Family substitution map:
+
+    Söhne           →  Hanken Grotesk   (variable, OFL)
+    Söhne Mono      →  JetBrains Mono   (variable, OFL)
+    Roslindale      →  Newsreader       (variable opsz, with italic, OFL)
+    Monokai Icons   →  Lucide via CDN   (use <i data-lucide="..."> + lucide.js)
+*/

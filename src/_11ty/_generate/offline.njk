@@ -1,14 +1,15 @@
 ---
-title: Oops! You are offline
-layout: page.njk
+title: Offline
+layout: base.njk
 permalink: /offline.html
-keyword: no-network
 eleventyExcludeFromCollections: true
 dynamicPermalink: false
 ---
 
-<h1>No internet connection!</h1>
-<p>
-    <span class="lead">{{title}}</span></br>
-    Try connecting to a wifi network or mobile connection and reload the page. go to <a href="{{'/' | url}}">Home page.</a>
-</p>
+<div class="shell">
+  <section class="hero">
+    <h1 class="heading1">Offline</h1>
+    <h2 class="sub-title">No internet connection</h2>
+    <p class="lede">Try connecting to a network and reload the page, or go to the <a href="/">home page</a>.</p>
+  </section>
+</div>

@@ -7,6 +7,7 @@ published: true
 tags: ["remote work", "productivity", "process", "covid-19"]
 layout: article.njk
 permalink: "/post/{{ title | slug }}.html"
+cover: /images/remote-work.jpg
 ---
 
 {% image "./src/images/remote-work.jpg", "My iMac" %}
