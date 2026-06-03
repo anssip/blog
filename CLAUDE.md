@@ -26,7 +26,7 @@ Eleventy is configured by `.eleventy.js`. Key points:
 
 - **Input/output directories are overridden**: input is `./src/`, output is `./public/`, with includes/layouts/data under `src/_11ty/` (`_includes/`, `_layouts/`, `_data/`). The unusual `/_11ty/_includes/` etc. paths (with leading slash) in `dir` config are relative to the input dir.
 - **Passthrough copies** map `src/_11ty/_static/{app,favicon,img,js}` and `src/images` to the site root — content under `_11ty/_static/app/` is copied to `/`.
-- **Custom shortcodes**: `{% image src, alt, sizes, classes %}` (in `src/_11ty/shortcodes/image.js`) and `{% picture src, alt, widths, sizes, class %}` (in `src/_11ty/shortcodes/picture.js`) both use `@11ty/eleventy-img` to generate responsive AVIF/WebP/JPEG variants into `public/img/`. `{% year %}` outputs the current year.
+- **Custom shortcodes**: `{% image src, alt, sizes, classes %}` (in `src/_11ty/shortcodes/image.js`, emits AVIF/WebP/JPEG/PNG) and `{% picture src, alt, widths, sizes, class %}` (in `src/_11ty/shortcodes/picture.js`, emits AVIF/WebP/JPEG) both use `@11ty/eleventy-img` to generate responsive variants into `public/img/`. `{% year %}` outputs the current year.
 - **HTML minification** runs as a transform on all `.html` outputs.
 - **Custom collection `visiblePosts`**: posts tagged `post` with `hidden !== true` — use this in templates rather than the raw `post` collection if filtering hidden drafts.
 
@@ -46,14 +46,15 @@ permalink: "/post/{{ title | slug }}.html"
 cover: /images/...     # used for post-card thumbnails and social previews
 ```
 
-Layouts in `src/_11ty/_layouts/`: `article.njk` (posts), `blog.njk` (post index), `page.njk` (static pages like `index.md`, `blog.md`), `base.njk` (shared shell).
+Layouts in `src/_11ty/_layouts/`: `base.njk` (shared shell, used directly by static `.njk` pages like `index.njk`, `about.njk`, and `photos/`) and `article.njk` (posts, which extends the shell).
 
 ### Styling
 
-Hand-written vanilla CSS — no Tailwind, no preprocessor. Two stylesheets, both in `src/css/` and copied to `public/css/` via passthrough:
+Hand-written vanilla CSS — no Tailwind, no preprocessor. Stylesheets live in `src/css/` and are copied to `public/css/` via passthrough:
 
 - `tokens.css` — design tokens (colors, type scale, link styling) and global element resets.
 - `blog.css` — page/component styles.
+- `fonts.css` — `@font-face` declarations.
 
 Site-wide config is split across `src/_11ty/_data/`: `site.js` (title, nav, social, slashless `url`), `meta.js` (author, theme color, social handles), `galleries.js` (photo gallery data).
 
