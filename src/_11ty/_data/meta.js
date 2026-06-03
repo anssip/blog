@@ -11,7 +11,7 @@ module.exports = {
     siteDescription: "Personal website of Anssi Piirainen",
     sitekeyword: "programming, development, software",
     creationDate: "20/05/2024",
-    url: process.env.URL || "https://anssipiirainen.com/",
+    url: process.env.URL || "https://anssi.dev/",
     robots: "index, follow",
     //
     // Color App

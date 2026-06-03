@@ -1,7 +1,7 @@
 module.exports = {
   title: "Anssi Piirainen",
   tagline: "long thoughts, short code",
-  url: "https://anssipiirainen.com",
+  url: "https://anssi.dev",
   intro:
     "Many of my posts are somehow related to my profession in software development. Not all.",
   author: {
